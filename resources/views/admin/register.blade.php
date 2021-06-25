@@ -11,6 +11,11 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Registered Roles</div>
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -38,7 +43,12 @@
                                     <a href="/role-edit/{{$user->id}}" class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-danger">Delete</a>
+                                    <form action="/role-delete/{{ $user->id}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="id" value=" {{$user->id}}">
+                                        <button type="submit" href="/role-delete/{{$user->id}}" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                               </tr>
                                 

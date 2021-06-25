@@ -22,4 +22,21 @@ class DashboardController extends Controller
             'users' => $users
         ]);
     }
+
+    public function registeredUpdate(Request $request, $id){
+        $users = User::find($id);
+        $users->name = $request->input('name');
+        $users->usertype = $request->input('usertype');
+        $users->phone = $request->input('phone');
+
+        $users->update();
+
+        return redirect('/role-register')->with('status' , ' Your Data will be Updated Successfully');
+    }
+
+    public function registeredDelete($id){
+        $users = User::findOrFail($id);
+        $users->delete();
+        return redirect('/role-register')->with('status', 'User Deleted Successfully !');
+    }
 }

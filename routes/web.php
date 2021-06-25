@@ -28,6 +28,8 @@ Route::middleware(['auth' , 'admin'])->group(function () {
     Route::get('/dashboard', function () {return view('admin.dashboard');});
     Route::get('/role-register',[App\Http\Controllers\admin\DashboardController::class, 'registered']);
     Route::get('/role-edit/{id}',[App\Http\Controllers\admin\DashboardController::class, 'registeredEdit']);
+    Route::put('/role-register-update/{id}' , [App\Http\Controllers\admin\DashboardController::class, 'registeredUpdate']);
+    Route::delete('/role-delete/{id}' , [App\Http\Controllers\admin\DashboardController::class, 'registeredDelete']);
 
 
 });
