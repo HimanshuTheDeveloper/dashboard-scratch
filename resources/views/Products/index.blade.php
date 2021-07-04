@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-     Registered Roles
+    Products
 @endsection
 
 @section('extra_css')
@@ -15,7 +15,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-title h2 text-center">Registered Roles</div>
+                <div class="card-title h2 text-center">All Products </div>
                 @if (session('status'))
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -32,31 +32,31 @@
                         <thead>
                           <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">User Type</th>
+                            <th scope="col">Product_Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($products as $product)
                             <tr>
-                                <th scope="row">{{$user->id}}</th>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->phone}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->usertype}}</td>
+                                <th scope="row">{{$product->id}}</th>
+                                <td>{{$product->product_name}}</td>
+                                <td>{{$product->description}}</td>
+                                <td>{{$product->category}}</td>
+                                <td>{{$product->price}}</td>
                                 <td>
-                                    <a href="/role-edit/{{$user->id}}" class="btn btn-success">Edit</a>
+                                    <a href="/role-edit/{{ $product->id}}" class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="/role-delete/{{ $user->id}}" method="POST">
+                                    <form action="/role-delete/{{ $product->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="hidden" name="id" value=" {{$user->id}}">
-                                        <button type="submit" href="/role-delete/{{$user->id}}" class="btn btn-danger">Delete</button>
+                                        <input type="hidden" name="id" value=" {{$product->id}}">
+                                        <button type="submit" href="/role-delete/{{$product->id}}" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
                               </tr>

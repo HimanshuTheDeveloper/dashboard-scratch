@@ -26,6 +26,8 @@
     @yield('title')
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+  @yield('extra_css')
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -62,29 +64,24 @@
             </a>
           </li>
           <li>
-            <a href="./map.html">
+            <a href="/bookings">
               <i class="now-ui-icons location_map-big"></i>
-              <p>Maps</p>
+              <p>All Bookings</p>
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <a href="/products">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Notifications</p>
+              <p>All Products</p>
             </a>
           </li>
           <li>
             <a href="/role-register">
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>All Users</p>
             </a>
           </li>
-          <li class="active ">
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
+         
           <li>
             <a href="./typography.html">
               <i class="now-ui-icons text_caps-small"></i>

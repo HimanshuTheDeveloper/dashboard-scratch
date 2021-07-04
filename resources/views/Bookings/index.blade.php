@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-     Registered Roles
+    Bookings 
 @endsection
 
 @section('extra_css')
@@ -15,7 +15,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <div class="card-title h2 text-center">Registered Roles</div>
+                <div class="card-title h2 text-center">All Bookings </div>
                 @if (session('status'))
 
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -32,31 +32,31 @@
                         <thead>
                           <tr>
                             <th scope="col">Id</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">User Type</th>
+                            <th scope="col">User_Id</th>
+                            <th scope="col">Product_id</th>
+                            <th scope="col">Total_price</th>
+                            <th scope="col">Created Time</th>
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($bookings as $booking)
                             <tr>
-                                <th scope="row">{{$user->id}}</th>
-                                <td>{{$user->name}}</td>
-                                <td>{{$user->phone}}</td>
-                                <td>{{$user->email}}</td>
-                                <td>{{$user->usertype}}</td>
+                                <th scope="row">{{$booking->id}}</th>
+                                <td>{{$booking->user_id}}</td>
+                                <td>{{$booking->product_id}}</td>
+                                <td>{{$booking->total_price}}</td>
+                                <td>{{$booking->created_at}}</td>
                                 <td>
-                                    <a href="/role-edit/{{$user->id}}" class="btn btn-success">Edit</a>
+                                    <a href="/role-edit/{{ $booking->id}}" class="btn btn-success">Edit</a>
                                 </td>
                                 <td>
-                                    <form action="/role-delete/{{ $user->id}}" method="POST">
+                                    <form action="/role-delete/{{ $booking->id}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="hidden" name="id" value=" {{$user->id}}">
-                                        <button type="submit" href="/role-delete/{{$user->id}}" class="btn btn-danger">Delete</button>
+                                        <input type="hidden" name="id" value=" {{$booking->id}}">
+                                        <button type="submit" href="/role-delete/{{$booking->id}}" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
                               </tr>
